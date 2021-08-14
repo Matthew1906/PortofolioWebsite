@@ -60,12 +60,6 @@ class Project(db.Model):
     cap3 = db.Column(db.String(255), nullable=False)
     desc3 = db.Column(db.String(255), nullable=False)
 
-# This needs to be executed, and then commented
-db.create_all()
-admin = User(name=ADMIN_NAME)
-db.session.add(admin)
-db.session.commit()
-
 # Default loading user function
 @login_manager.user_loader
 def load_user(user_id):
