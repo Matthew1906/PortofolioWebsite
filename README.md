@@ -16,7 +16,7 @@ Sorry for the 'not exactly cool' web design. I'm not experienced enough in front
 2. Set up a virtual environment by typing 'python -m venv env' in the command line
 3. Set your interpreter path to the virtual environment path
 4. Download all the dependencies (modules) by typing 'python -m pip install -r requirements.txt'
-5. Before starting the application, you need to create the database locally (using sqlite) by inserting db.create_all()' in the python script
+5. Before starting the application, you need to create the database locally (using sqlite) in the python script (and comment them afterwards)
 6. You also need to add new user (which will be you), so that you can log in and insert your projects
 - The code for step 5-6 is:
 ```python 
