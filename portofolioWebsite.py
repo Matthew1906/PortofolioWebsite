@@ -74,7 +74,7 @@ def home():
 
 @app.route('/<type>')
 def by_type(type):
-    projects = Project.query.filter_by(type=type)
+    projects = Project.query.filter(Project.type.like(f'%{type}%'))
     return render_template('index.html', projects= projects)
 
 @app.route('/project/<int:id>')
@@ -96,7 +96,7 @@ def add():
         if form.validate_on_submit() and find_project==None:
             new_project = Project(
                 name = request.form.get('name'),
-                type = request.form.get('type'),
+                type = ', '.join(form.type.data),
                 link = request.form.get('link'),
                 description = request.form.get('description'),
                 image1 = request.files.get('image1').read(),
@@ -123,7 +123,7 @@ def update(id):
     project = Project.query.get(id)
     form = ProjectForm(
         name = project.name,
-        type = project.type,
+        type = project.type.split(', '),
         link = project.link,
         description = project.description,
         image1 = project.image1,
@@ -136,9 +136,10 @@ def update(id):
         cap3 = project.cap3,
         desc3= project.desc3,
     )
+    print(form.type.data)
     if request.method == 'POST' and form.validate_on_submit():
         project.name = request.form.get('name')
-        project.type = request.form.get('type')
+        project.type = ', '.join(form.type.data)
         project.link = request.form.get('link')
         project.description = request.form.get('description')
         project.image1 = request.files.get('image1').read()
