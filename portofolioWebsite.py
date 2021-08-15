@@ -69,7 +69,7 @@ def load_user(user_id):
 ## Read
 @app.route('/')
 def home():
-    projects = Project.query.all()
+    projects = db.session.query(Project).order_by(Project.name)
     return render_template('index.html', projects= projects)
 
 @app.route('/<type>')
