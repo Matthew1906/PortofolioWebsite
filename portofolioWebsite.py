@@ -74,7 +74,7 @@ def home():
 
 @app.route('/<type>')
 def by_type(type):
-    projects = Project.query.filter(Project.type.like(f'%{type}%'))
+    projects = Project.query.filter(Project.type.like(f'%{type}%')).order_by(Project.name)
     return render_template('index.html', projects= projects)
 
 @app.route('/project/<int:id>')
