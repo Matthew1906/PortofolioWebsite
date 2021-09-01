@@ -25,5 +25,5 @@ Sorry for the 'not exactly cool' web design. I'm not experienced enough in front
  db.session.add(admin)
  db.session.commit()
 ```
-8. Lastly, don't forget to setup SECRET_KEY, ADMIN_NAME, ADMIN (username), and PASSWORD in .env file so that the program can start
-9. Start the application by running the code, and then go to 'http://127.0.0.1:5000/'
+7. Lastly, don't forget to setup SECRET_KEY, ADMIN_NAME, ADMIN (username), and PASSWORD in .env file so that the program can start
+8. Start the application by running the code, and then go to http://127.0.0.1:5000/
